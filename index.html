@@ -1,53 +1,41 @@
 <html>
-  <head>
-    <title>PlatziMediaPlayer.js</title>
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
-    <link rel="stylesheet" href="./assets/index.css" />
-  </head>
 
-  <body>
-    <header>
-      <h1>PlatziMediaPlayer.js</h1>
-      <p>An extensible media player.</p>
-    </header>
+<head>
+  <title>PlatziMediaPlayer.js</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+  <link rel="stylesheet" href="./assets/index.css" />
+</head>
 
-    <main class="container">
-      <video class="movie">
-        <source src="./assets/BigBuckBunny.mp4" />
-      </video>
+<body>
+  <header>
+    <h1>PlatziMediaPlayer.js</h1>
+    <p>An extensible media player.</p>
+  </header>
 
-      <button>Play/Pause</button>
-    </main>
+  <main class="container">
+    <video class="movie">
+      <source src="./assets/BigBuckBunny.mp4" />
+    </video>
 
-    <script>
-      function MediaPlayer(config) {
-        this.media = config.el;
-      }
+    <button>Play/Pause</button>
+  </main>
 
-      MediaPlayer.prototype.play = function() {
-        this.media.play();
-      };
+  <script>
+    const video = document.querySelector("video")
+    const button = document.querySelector("button")
 
-      MediaPlayer.prototype.pause = function() {
-        this.media.pause();
-      };
+    function MediaPlayer(config) {
+      this.media = config.el
+    }
 
-      MediaPlayer.prototype.togglePlay = function() {
-        if (this.media.paused) {
-          this.play();
-        } else {
-          this.pause();
-        }
-      };
+    MediaPlayer.prototype.play = function () {
+      this.media.paused ? this.media.play() : this.media.pause()
+    }
 
-      const video = document.querySelector('video');
-      const player = new MediaPlayer({ el: video });
+    const player = new MediaPlayer({ el: video })
+    button.onclick = () => player.play()
+    // video.play()
+  </script>
+</body>
 
-      const button = document.querySelector('button');
-      button.onclick = () => player.togglePlay();
-    </script>
-  </body>
 </html>
