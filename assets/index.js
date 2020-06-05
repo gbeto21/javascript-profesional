@@ -6,7 +6,7 @@ const player = new MediaPlayer(
     {
         el: video,
         plugins: [
-            // new AutoPlay()
+            new AutoPlay()
         ]
     })
 const button = document.querySelector("button")
