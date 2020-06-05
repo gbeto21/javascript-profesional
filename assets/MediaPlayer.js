@@ -24,7 +24,7 @@ MediaPlayer.prototype._initPlugins = function () {
 }
 
 MediaPlayer.prototype.play = function () {
-    this.media.paused ? this.media.play() : this.media.pause()
+    this.media.play();
 }
 
 MediaPlayer.prototype.mute = function () {
