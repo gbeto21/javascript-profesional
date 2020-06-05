@@ -35,6 +35,8 @@ MediaPlayer.prototype.unmute = function () {
     this.media.muted = false
 }
 
-
+MediaPlayer.prototype.pause = function(){
+    this.media.pause()
+}
 
 export default MediaPlayer
